@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Candidatos para trabalhar na empresa</h1>
+    <p>Média de Idade dos Candidatos: <span id = "mediacandd"></span></p>
+    <p>Número Total de Candidatos: <span id = "masccandd"></span></p>
+    <p>Número Total de Candidatas: <span id = "femcandd"></span></p>
+    <p>Candidatos Maiores de Idade que possuem Experiência Profissional para o Serviço: <span id = "totalcandd"></span></p>
+    <script>
+        let candidatos = prompt ("Você deseja anotar dados de um candidato ao serviço? \n1 - Sim \n2 - Não");
+        let numcand;
+        let idade;
+        let sexo;
+        let expprof;
+        let masc = "";
+        let fem = "";
+        let media = 0;
+        let soma = 0;
+        let nucand = 0;
+        let aprovados = "";
+        while (candidatos == "1" ) {
+            numcand = prompt("Digite o número do candidato.")
+            idade = Number (prompt("Digite a idade do candidato."))
+            sexo = prompt ("Qual é o sexo do candidato? \n1 - Masculino \n2 - Feminino")
+            expprof = prompt ("O candidato possui experiência profissional? \n1 - Sim \n2 - Não")
+            soma += idade
+            if (sexo == "1") {
+                masc++
+            } if (sexo == "2") {
+                fem++
+            } if (idade >= 18 && expprof == "1") {
+                aprovados += "<br>" + "<br>" + "Candidato n° " + numcand 
+            }else{
+                candidatos--;
+            }
+            candidatos = prompt ("Você deseja anotar outros dados de um outro candidato? \n1 - Sim \n2 - Não")
+            nucand++
+        }
+        media += soma / nucand;
+        document.getElementById("mediacandd").innerHTML = media;
+        document.getElementById("masccandd").innerHTML = masc;
+        document.getElementById("femcandd").innerHTML = fem;
+        document.getElementById("totalcandd").innerHTML = aprovados;
+    </script>
+</body>
+</html>
